@@ -111,4 +111,4 @@ class TetrominoGenerator:
 
     def generate(self, spawn_pos):
         mino_id = random.randint(0, self._n_patterns - 1)
-        return self._create(self._pattern_list[mino_id], spawn_pos)
+        return self._create(mino_id, spawn_pos)

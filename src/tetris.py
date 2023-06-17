@@ -4,8 +4,13 @@ from copy import deepcopy
 
 from src.tetromino import TetrominoGenerator
 from src.board import Board
-from src.key import getkey
 from src.setting import FPS
+
+try:
+    from src.key_windows import getkey
+except:
+    from src.key_unix import getkey
+
 
 
 def fps_decorator(func):
@@ -23,7 +28,7 @@ class TetrisParam:
     HEIGHT: int = 20
     SPAWN_POS: tuple = (4, 0)
     FALL_CYCLE_FRAME: int = 20
-    KEY_CYCLE_FRAME: int = 3
+    KEY_CYCLE_FRAME: int = 10
     KEY_MOVE_LEFT: int = 97     # a (ascii code)
     KEY_MOVE_RIGHT: int = 100   # d (ascii code)
     KEY_MOVE_DOWN: int = 115    # s (ascii code)
