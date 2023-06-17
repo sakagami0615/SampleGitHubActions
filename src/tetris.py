@@ -8,9 +8,8 @@ from src.setting import FPS
 
 try:
     from src.key_windows import getkey
-except:
+except ImportError:
     from src.key_unix import getkey
-
 
 
 def fps_decorator(func):

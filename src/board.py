@@ -19,7 +19,9 @@ class Board:
         self._height = height
         self._board = []
         self._board += [[self.Block.EMPTY] * (width + 2)]
-        self._board += [[self.Block.WALL] + [self.Block.EMPTY] * width + [self.Block.WALL] for _ in range(height)]
+        self._board += [[self.Block.WALL] +
+                        [self.Block.EMPTY] * width +
+                        [self.Block.WALL] for _ in range(height)]
         self._board += [[self.Block.WALL] * (width + 2)]
         console.cursor_hyde()
 
@@ -40,7 +42,8 @@ class Board:
 
     def clear_line(self):
         for i in range(len(self._board) - 1, 0, -1):
-            n_empty = sum([1 for j in range(1, self._width + 1) if self._board[i][j] == self.Block.PUT])
+            n_empty = sum([1 for j in range(1, self._width + 1)
+                           if self._board[i][j] == self.Block.PUT])
             if n_empty < self._width:
                 continue
             for j in range(i, 0, -1):
@@ -49,9 +52,12 @@ class Board:
 
     def draw(self, is_gameover=False):
         def convert(x):
-            if x == self.Block.WALL: return f"{self.Display.WALL} "
-            elif x == self.Block.PUT: return f"{self.Display.BLOCK} "
-            else: return "  "
+            if x == self.Block.WALL:
+                return f"{self.Display.WALL} "
+            elif x == self.Block.PUT:
+                return f"{self.Display.BLOCK} "
+            else:
+                return "  "
 
         def gameover_message():
             message = "<G A M E  O V E R!>"

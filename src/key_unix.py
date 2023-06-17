@@ -8,12 +8,12 @@ import termios
 def getkey():
     fno = sys.stdin.fileno()
 
-    #stdinの端末属性を取得
+    # stdinの端末属性を取得
     attr_old = termios.tcgetattr(fno)
 
     # stdinのエコー無効、カノニカルモード無効
     attr = termios.tcgetattr(fno)
-    attr[3] = attr[3] & ~termios.ECHO & ~termios.ICANON # & ~termios.ISIG
+    attr[3] = attr[3] & ~termios.ECHO & ~termios.ICANON
     termios.tcsetattr(fno, termios.TCSADRAIN, attr)
 
     # stdinをNONBLOCKに設定
