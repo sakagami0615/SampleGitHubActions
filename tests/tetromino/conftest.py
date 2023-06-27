@@ -1,7 +1,7 @@
 import pytest
 
 from operator import add
-from src.tetromino import TetrominoGenerator
+from tetris.tetromino import TetrominoGenerator
 
 
 @pytest.fixture(scope="function")
